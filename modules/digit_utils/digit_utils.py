@@ -46,7 +46,6 @@ def count_digits(number):
 
     return digitCount
 
-
 def sum_digits(number):
     """
     Returns the sum of all digits
@@ -61,9 +60,6 @@ def sum_digits(number):
         Sum of digits
     """
 
-    digitsSum = 0
-    digit = 0
-
     if number < 0:
         number = abs(number)
 
@@ -73,3 +69,30 @@ def sum_digits(number):
         number = number // 10
 
     return digitsSum
+
+def product_digits(number):
+    """
+    Returns the product of all digits
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    int
+        Product of all digits 
+    """
+
+    if number == 0:
+        return 0
+
+    number = abs(number)
+    product = 1
+
+    while number > 0:
+        digit = number % 10
+        product = product * digit
+        number = number // 10
+
+    return product

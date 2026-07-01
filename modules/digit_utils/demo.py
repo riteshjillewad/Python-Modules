@@ -8,6 +8,7 @@
 
 from digit_utils import count_digits
 from digit_utils import sum_digits
+from digit_utils import product_digits
 
 def main():
 
@@ -19,6 +20,9 @@ def main():
 
     ret = sum_digits(num)
     print(f"Sum of digits of {num}: {ret}")
+
+    ret = product_digits(num)
+    print(f"Product of digits of {num}: {ret}")
 
 if __name__ == "__main__":
     main()
