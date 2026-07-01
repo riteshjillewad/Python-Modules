@@ -9,6 +9,7 @@
 from digit_utils import count_digits
 from digit_utils import sum_digits
 from digit_utils import product_digits
+from digit_utils import reverse_number
 
 def main():
 
@@ -23,6 +24,9 @@ def main():
 
     ret = product_digits(num)
     print(f"Product of digits of {num}: {ret}")
+
+    ret = reverse_number(num)
+    print(f"Reversed number: {ret}")
 
 if __name__ == "__main__":
     main()
