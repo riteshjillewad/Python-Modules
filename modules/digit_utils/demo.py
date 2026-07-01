@@ -6,10 +6,7 @@
 # Version     : 1.0.0
 ###########################################################################################
 
-from digit_utils import count_digits
-from digit_utils import sum_digits
-from digit_utils import product_digits
-from digit_utils import reverse_number
+from digit_utils import *
 
 def main():
 
@@ -27,6 +24,9 @@ def main():
 
     ret = reverse_number(num)
     print(f"Reversed number: {ret}")
+
+    ret = first_digit(num)
+    print(f"First digit: {ret}")
 
 if __name__ == "__main__":
     main()
