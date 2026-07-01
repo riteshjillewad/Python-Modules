@@ -171,3 +171,57 @@ def last_digit(number):
     """
 
     return abs(number) % 10
+
+def middle_digit(number):
+    """
+    Returns the middle digit(s) of a number.
+    If the number has an even amount of digits, returns the two middle digits.
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    int
+        The middle digit(s)
+    """
+
+    num_str = str(abs(number))
+    length = len(num_str)
+    
+    mid_index = length // 2
+    
+    if length % 2 != 0:
+        # ODD: Return the single exact middle digit
+        return int(num_str[mid_index])
+    else:
+        # EVEN: Return the two middle digits combined
+        return int(num_str[mid_index - 1 : mid_index + 1])
+    
+def replace_digit(number, targetDigit, newDigit):
+    """
+    Replaces the target digit with new digit
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    int
+        Number with replaced digit
+    """
+
+    if number < 0:
+        sign = -1
+    else:
+        sign = 1
+
+    # converting number to string
+    numberStr = str(abs(number))
+
+    # making use of .replace(target, replacement)
+    newNumStr = numberStr.replace(str(targetDigit), str(newDigit))
+
+    return sign * int(newNumStr)

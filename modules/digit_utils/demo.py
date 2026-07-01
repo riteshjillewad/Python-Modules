@@ -31,5 +31,12 @@ def main():
     ret = last_digit(num)
     print(f"Last digit: {ret}")
 
+    ret = middle_digit(num)
+    print(f"Middle digit: {ret}")
+
+    ret = replace_digit(num, 1, 5)
+    print(f"Original digit: {num}")
+    print(f"Replaced digit: {ret}")
+
 if __name__ == "__main__":
     main()
