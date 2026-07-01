@@ -10,16 +10,15 @@ from digit_utils import *
 
 def main():
 
-    print("Enter number: ")
-    num = int(input())
+    num = 231231
 
     ret = count_digits(num)
     print(f"Number of digits in {num}: {ret}")
 
 # <-----    ADD MORE FUNCTIONS FOR TESTING     ------>
 
-    ret = count_occurrences(num, 3)
-    print(f"Count of 15 in {num}: {ret}")
+    ret = find_first_occurrence(num, 1)
+    print(f"First occurence of 1 in {num}: {ret}")
 
 if __name__ == "__main__":
     main()

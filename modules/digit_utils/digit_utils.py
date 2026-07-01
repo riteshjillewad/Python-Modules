@@ -394,3 +394,47 @@ def contains_digit(number: int, target_digit: int) -> bool:
         number = number // 10
 
     return False
+
+def find_first_occurrence(number: int, target_digit: int) -> int:
+    """
+    Finds the 0-based index of the first (leftmost) occurrence of a target digit.
+    Returns -1 if the digit is not found.
+
+    Parameters:
+    ----------------------------
+    number: int
+    target_digit: int
+
+    Returns:
+    ----------------------------
+    int
+        Index of the first occurrence, or -1
+    """
+
+    digits_list = list()
+    number = abs(number)
+
+    if number == 0:
+        if target_digit == 0:
+            return 0
+        else:
+            return -1
+        
+    # There are two approaches for this:
+    # 1. Convert to string, and use .find()
+    # 2. Store digits in list, and then traverse
+
+    # Storing the digits in list (it is from right-to-left)
+    while number != 0:
+        digit = number % 10
+        digits_list.append(digit)
+        number = number // 10
+
+    # Reverse the list, so we can move from left-to-right
+    digits_list.reverse()
+
+    for i in range(len(digits_list)):
+        if digits_list[i] == target_digit:
+            return i
+
+    return -1
