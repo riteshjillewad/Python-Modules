@@ -63,6 +63,8 @@ def sum_digits(number):
     if number < 0:
         number = abs(number)
 
+    digitsSum = 0
+
     while number != 0:
         digit = number % 10
         digitsSum = digitsSum + digit
@@ -96,3 +98,34 @@ def product_digits(number):
         number = number // 10
 
     return product
+
+def reverse_number(number):
+    """
+    Returns the reversed number
+
+    Parameters:
+    ----------------------------
+    number: int 
+
+    Returns:
+    ----------------------------
+    int
+        Reversed number
+    """
+
+    if number == 0:
+        return 0
+    
+    if number < 0:
+        sign = -1
+    else:
+        sign = 1
+    
+    number = abs(number)
+    reverse = 0
+
+    while number != 0:
+        reverse = reverse * 10 + number % 10
+        number = number // 10
+
+    return sign * reverse
