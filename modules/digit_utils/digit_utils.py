@@ -116,6 +116,7 @@ def reverse_number(number):
     if number == 0:
         return 0
     
+    # We store the sign, so that we can handle negative numbers case
     if number < 0:
         sign = -1
     else:
@@ -129,3 +130,28 @@ def reverse_number(number):
         number = number // 10
 
     return sign * reverse
+
+def first_digit(number):
+    """
+    Returns first digit from number
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    int
+        First digit
+    """
+
+    if number == 0:
+        return 0
+    
+    number = abs(number)
+
+    # Extract the digits, until single digit is left
+    while number >= 10:
+        number = number // 10
+
+    return number
