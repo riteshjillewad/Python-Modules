@@ -28,5 +28,8 @@ def main():
     ret = first_digit(num)
     print(f"First digit: {ret}")
 
+    ret = last_digit(num)
+    print(f"Last digit: {ret}")
+
 if __name__ == "__main__":
     main()

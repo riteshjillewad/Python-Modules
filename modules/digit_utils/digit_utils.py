@@ -155,3 +155,19 @@ def first_digit(number):
         number = number // 10
 
     return number
+
+def last_digit(number):
+    """
+    Returns the last digit from number
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    int
+        Last digit
+    """
+
+    return abs(number) % 10
