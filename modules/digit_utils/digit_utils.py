@@ -45,3 +45,31 @@ def count_digits(number):
         number = number // 10
 
     return digitCount
+
+
+def sum_digits(number):
+    """
+    Returns the sum of all digits
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    int
+        Sum of digits
+    """
+
+    digitsSum = 0
+    digit = 0
+
+    if number < 0:
+        number = abs(number)
+
+    while number != 0:
+        digit = number % 10
+        digitsSum = digitsSum + digit
+        number = number // 10
+
+    return digitsSum

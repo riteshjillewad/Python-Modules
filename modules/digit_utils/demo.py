@@ -7,6 +7,7 @@
 ###########################################################################################
 
 from digit_utils import count_digits
+from digit_utils import sum_digits
 
 def main():
 
@@ -15,6 +16,9 @@ def main():
 
     ret = count_digits(num)
     print(f"Number of digits in {num}: {ret}")
+
+    ret = sum_digits(num)
+    print(f"Sum of digits of {num}: {ret}")
 
 if __name__ == "__main__":
     main()
