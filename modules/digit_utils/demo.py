@@ -17,11 +17,8 @@ def main():
 
 # <-----    ADD MORE FUNCTIONS FOR TESTING     ------>
 
-    ret = is_harshad(num)
-    if ret == True:
-        print(f"{num} is harshad number")
-    else:
-        print(f"{num} is not harshad number")
+    ret = digital_root(num)
+    print(f"Digital root of {num}: {ret}")
 
 if __name__ == "__main__":
     main()

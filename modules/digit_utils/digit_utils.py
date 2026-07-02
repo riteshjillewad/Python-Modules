@@ -33,6 +33,22 @@ def find_last_occurence(number, target_digit)
 def find_all_occurences(number, target_digit)
 
 def digit_frequency(number, target_digit)
+def most_frequent_digit(number)
+def least_frequent_digit(number)
+def unique_digits(number)
+def duplicate_digits(number)
+
+def is_palindrome(number)
+def is_armstrong(number)
+def is_strong(number)
+def is_neon(number)
+def is_duck(number)
+def is_spy(number)
+def is_disarium(number)
+def is_happy(number)
+def is_harshad(number)
+def is_automorphic(number)
+def is_trimorphic(number)
 
 """
 
@@ -1006,3 +1022,37 @@ def is_trimorphic(number: int) -> bool:
     divisor = 10 ** num_digits
     
     return cube % divisor == number
+
+###########################################################################################
+# Mathematical Digit Operations
+###########################################################################################
+
+def digital_root(number: int) -> int:
+    """
+    Return the digital root of the number.
+    Digital root is single-digit value obtained by summing it's digit until only one digit remains
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    int:
+        Digital root of the number
+    """
+
+    number = abs(number)
+
+    while number >= 10:
+
+        digit_sum = 0
+
+        while number != 0:
+            digit = number % 10
+            digit_sum += digit
+            number = number // 10
+        
+        number = digit_sum
+
+    return digit_sum
