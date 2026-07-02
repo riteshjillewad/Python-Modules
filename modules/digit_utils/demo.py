@@ -10,15 +10,15 @@ from digit_utils import *
 
 def main():
 
-    num = 12332214331
+    num = 1122345
 
     ret = count_digits(num)
     print(f"Number of digits in {num}: {ret}")
 
 # <-----    ADD MORE FUNCTIONS FOR TESTING     ------>
 
-    ret = find_all_occurrences(num, 2)
-    print(f"All occurences are: {ret}")
+    ret = unique_digits(num)
+    print(f"Unique digits in {num} are: {ret}")
 
 if __name__ == "__main__":
     main()

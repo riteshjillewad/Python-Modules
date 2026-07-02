@@ -599,3 +599,68 @@ def most_frequent_digit(number: int) -> int:
             most_frequent = i
 
     return most_frequent
+
+def least_frequent_digit(number: int) -> int:
+    """
+    Finds the least frequent digit. 
+    Only considers digits that appear at least once.
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    int
+        Least frequent digit
+    """
+
+    if number == 0:
+        return 0
+        
+    number = abs(number)
+    frequencies = [0] * 10
+    
+    present_digits = [False] * 10
+    
+    while number != 0:
+        digit = number % 10
+        frequencies[digit] += 1
+        present_digits[digit] = True
+        number = number // 10
+        
+    min_count = float('inf')
+    least_frequent = -1
+    
+    for i in range(10):
+        if present_digits[i] and frequencies[i] <= min_count:
+            min_count = frequencies[i]
+            least_frequent = i
+            
+    return least_frequent
+
+def unique_digits(number: int) -> list[int]:
+    """
+    Returns the list of unique digits from a number, sorted.
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    list[int]
+        List of unique digits
+    """
+
+    if number == 0:
+        return [0]
+    
+    number = abs(number)
+    unique_set = set()
+
+    while number != 0:
+        unique_set.add(number % 10)
+        number = number // 10
+
+    return sorted(list(unique_set))
