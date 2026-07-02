@@ -795,7 +795,7 @@ def is_strong(number: int) -> bool:
 
     return original == sum_digits
 
-def is_neon_number(number: int) -> bool:
+def is_neon(number: int) -> bool:
     """
     Checks of given number is neon number or not.
     Number where sum of the digits of it's square is equal to the original number
@@ -825,7 +825,7 @@ def is_neon_number(number: int) -> bool:
 
     return number == sum_digits
 
-def is_duck_number(number: int) -> bool:
+def is_duck(number: int) -> bool:
     """
     Checks if a number is a Duck Number.
     Positive number that contains atleast one 0, but 0 must not be at start
@@ -847,3 +847,60 @@ def is_duck_number(number: int) -> bool:
         
     # Check if there is at least one '0' in the rest of the string
     return '0' in num_str
+
+def is_spy(number: int) -> bool:
+    """
+    Checks if number is spy number or not.
+    Number where the sum of it's digit equals to product of digits
+    Ex:
+        1124 -> (1+1+2+4) = 8, (1*1*2*4) = 8
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    bool:
+        True or False
+    """
+
+    if number == 0:
+        return True
+    
+    return sum_digits(abs(number)) == product_digits(abs(number))
+
+def is_disarium(number: int) -> bool:
+    """
+    Check if number is disarium or not.
+    Number where the sum of its digits, each raised to the power of their respective position 
+    (starting from 1 on the far left), equals the number itself.
+    Ex:
+        135 = 1^1 + 3^2 + 5^3
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    bool:
+        True or False
+    """
+
+    number = abs(number)
+    original = number
+    
+    # Reverse to process from the far-left digit first
+    reversed_num = reverse_number(number)
+    
+    sum_digits = 0
+    index = 1
+
+    while reversed_num != 0:
+        digit = reversed_num % 10
+        sum_digits += digit ** index
+        reversed_num //= 10
+        index += 1
+
+    return original == sum_digits
