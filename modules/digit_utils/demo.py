@@ -10,18 +10,18 @@ from digit_utils import *
 
 def main():
 
-    num = 135
+    num = 18
 
     ret = count_digits(num)
     print(f"Number of digits in {num}: {ret}")
 
 # <-----    ADD MORE FUNCTIONS FOR TESTING     ------>
 
-    ret = is_happy(num)
+    ret = is_harshad(num)
     if ret == True:
-        print(f"{num} is happy number")
+        print(f"{num} is harshad number")
     else:
-        print(f"{num} is not happy number")
+        print(f"{num} is not harshad number")
 
 if __name__ == "__main__":
     main()

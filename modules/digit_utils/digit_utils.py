@@ -936,3 +936,22 @@ def is_happy(number: int) -> bool:
         number = sum_of_squares
 
     return number == 1
+
+def is_harshad(number: int) -> bool:
+    """
+    Checks if number is harshad number or not.
+    Number that is exactly divisible by sum of it's digit
+    Ex:
+        18 -> (1+8)=9 -> 18/9 = 2
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    bool:
+        True or False
+    """
+
+    return abs(number) % sum_digits(number) == 0
