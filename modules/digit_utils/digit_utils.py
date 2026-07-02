@@ -1366,6 +1366,7 @@ def extract_non_prime_digits(number: int) -> list[int]:
     list[int]:
         List of non-prime digits
     """
+
     number = abs(number)
     non_prime_digits = {0, 1, 4, 6, 8, 9}
     non_prime_list = list()
@@ -1377,3 +1378,27 @@ def extract_non_prime_digits(number: int) -> list[int]:
         number //= 10
 
     return non_prime_list
+
+def extract_unique_digits(number: int) -> list[int]:
+    """
+    Returns the list of unique digits from number
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    list[int]:
+        List of unique digits
+    """
+
+    number = abs(number)
+    unique_digits = set()
+
+    while number != 0:
+        digit = number % 10
+        unique_digits.add(digit)
+        number = number // 10
+
+    return list(unique_digits)
