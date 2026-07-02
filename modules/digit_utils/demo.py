@@ -17,11 +17,11 @@ def main():
 
 # <-----    ADD MORE FUNCTIONS FOR TESTING     ------>
 
-    ret = is_disarium(num)
+    ret = is_happy(num)
     if ret == True:
-        print(f"{num} is disarium number")
+        print(f"{num} is happy number")
     else:
-        print(f"{num} is not disarium number")
+        print(f"{num} is not happy number")
 
 if __name__ == "__main__":
     main()

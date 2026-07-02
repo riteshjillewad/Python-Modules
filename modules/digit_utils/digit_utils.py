@@ -904,3 +904,35 @@ def is_disarium(number: int) -> bool:
         index += 1
 
     return original == sum_digits
+
+def is_happy(number: int) -> bool:
+    """
+    Checks if a number is a happy number.
+    (Sum of squares of digits eventually reaches 1)
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Returns:
+    ----------------------------
+    bool:
+        True or False
+    """
+    number = abs(number)
+    seen = set()
+
+    # Continue until we hit 1 (happy) or a number we've seen before (cycle)
+    while number != 1 and number not in seen:
+        seen.add(number)
+        
+        sum_of_squares = 0
+        temp = number
+        while temp != 0:
+            digit = temp % 10
+            sum_of_squares += digit * digit
+            temp //= 10
+        
+        number = sum_of_squares
+
+    return number == 1
