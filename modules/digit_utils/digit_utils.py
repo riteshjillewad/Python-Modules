@@ -1433,3 +1433,108 @@ def increment_digit(num: int, counter=1) -> int:
         number = number // 10
 
     return reverse_number(new_number)
+
+def decrement_digit(number: int, counter=1) -> int:
+    """
+    Decrements the digits of the number by 1(default)
+
+    Parameters:
+    ----------------------------
+    number: int
+    number: counter (tells by how much to decrement)
+
+    Return value:
+    ----------------------------
+    int:
+        Number with decremented digits
+    """
+
+    number = abs(number)
+    new_number = 0
+    
+    while number != 0:
+        digit = number % 10
+        # The modulo operator handles the wrap-around for negative results automatically
+        digit = (digit - counter) % 10
+        new_number = new_number * 10 + digit
+        number = number // 10
+
+    return reverse_number(new_number)
+
+def square_digits(number: int) -> int:
+    """
+    Squares the digits of number
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Return value:
+    ----------------------------
+    int:
+        number
+    """
+
+    number = abs(number)
+    new_number = 0
+    
+    while number != 0:
+        digit = number % 10
+        # Corrected: Squaring instead of doubling
+        digit = (digit * digit) % 10
+        new_number = new_number * 10 + digit
+        number //= 10
+
+    return reverse_number(new_number)
+
+def replace_even_digits(number: int, target: int) -> int:
+    """
+    Replaces the even digits with target
+
+    Parameters:
+    ----------------------------
+    number: int
+    target: int
+
+    Return value:
+    ----------------------------
+    number: int
+    """
+
+    number = abs(number)
+    new_number = 0
+
+    while number != 0:
+        digit = number % 10
+        if digit % 2 == 0:
+            digit = target
+        new_number = new_number * 10 + digit
+        number = number // 10
+    
+    return reverse_number(new_number)
+
+def replace_odd_digits(number: int, target: int) -> int:
+    """
+    Replaces the odd digits with target
+
+    Parameters:
+    ----------------------------
+    number: int
+    target: int
+
+    Return value:
+    ----------------------------
+    number: int
+    """
+
+    number = abs(number)
+    new_number = 0
+
+    while number != 0:
+        digit = number % 10
+        if digit % 2 != 0:
+            digit = target
+        new_number = new_number * 10 + digit
+        number = number // 10
+    
+    return reverse_number(new_number)

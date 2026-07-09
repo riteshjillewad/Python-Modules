@@ -17,13 +17,8 @@ def main():
 
 # <-----    ADD MORE FUNCTIONS FOR TESTING     ------>
 
-    ret = extract_prime_digits(num)
-    print(f"Original num: {num}, Prime digits: {ret}")
-
-    ret = increment_digit(num, 3)
-    print(f"Increment digits number: {ret}")
-
-
+    ret = replace_odd_digits(num, target=9)
+    print(f"Modified number: {ret}")
 
 if __name__ == "__main__":
     main()
