@@ -1402,3 +1402,33 @@ def extract_unique_digits(number: int) -> list[int]:
         number = number // 10
 
     return list(unique_digits)
+
+###########################################################################################
+# Digit Transformation
+###########################################################################################
+
+def increment_digit(num: int, counter=1) -> int:
+    """
+    Increments the digits of the number by 1(default)
+
+    Parameters:
+    ----------------------------
+    number: int
+
+    Return value:
+    ----------------------------
+    int:
+        Number with incremented digits
+    """
+
+    number = abs(num)
+    new_number = 0
+    
+    while number != 0:
+        digit = number % 10
+        # Wrap-around logic: (9 + 1) % 10 = 0
+        digit = (digit + counter) % 10                                              # IMP
+        new_number = new_number * 10 + digit
+        number = number // 10
+
+    return reverse_number(new_number)

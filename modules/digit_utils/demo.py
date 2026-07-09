@@ -10,7 +10,7 @@ from digit_utils import *
 
 def main():
 
-    num = 401235789953
+    num = 12345
 
     ret = count_digits(num)
     print(f"Number of digits in {num}: {ret}")
@@ -19,6 +19,11 @@ def main():
 
     ret = extract_prime_digits(num)
     print(f"Original num: {num}, Prime digits: {ret}")
+
+    ret = increment_digit(num, 3)
+    print(f"Increment digits number: {ret}")
+
+
 
 if __name__ == "__main__":
     main()
