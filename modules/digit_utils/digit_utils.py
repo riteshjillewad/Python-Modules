@@ -1414,6 +1414,7 @@ def increment_digit(num: int, counter=1) -> int:
     Parameters:
     ----------------------------
     number: int
+    number: counter (tells by how much to increment)
 
     Return value:
     ----------------------------
