@@ -1715,8 +1715,8 @@ def second_smallest_digit(number: int) -> int:
 
     number = abs(number)
 
-    first_min = -1
-    second_min = -1
+    first_min = 9
+    second_min = 9
 
     while number != 0:
         digit = number % 10

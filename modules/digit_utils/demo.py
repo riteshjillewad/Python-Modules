@@ -20,5 +20,8 @@ def main():
     ret = second_largest_digit(num)
     print(f"Second largest digit in {num}: {ret}")
 
+    ret = second_smallest_digit(num)
+    print(f"Second smallest digit in {num}: {ret}")
+
 if __name__ == "__main__":
     main()
