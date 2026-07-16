@@ -54,6 +54,9 @@ def is_odd(number: int) -> bool:
     bool:
         True or false
     """
+
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
     
     return number & 1 != 0
 
@@ -71,6 +74,9 @@ def square_num(number: int) -> int:
         Square of number
     """
 
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
+
     return number ** 2
 
 def cube_num(number: int) -> int:
@@ -86,6 +92,9 @@ def cube_num(number: int) -> int:
     int:
         Cube of number
     """
+
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
 
     return number ** 3
 
@@ -103,6 +112,12 @@ def power_num(base: int, exponent: int) -> int:
     int:
         Power value of number
     """
+
+    if not isinstance(base, int):
+        raise TypeError("Base must be an integer.")
+    
+    if not isinstance(exponent, int):
+        raise TypeError("Exponent must be an integer.")
 
     return base ** exponent
 
@@ -139,6 +154,9 @@ def get_cube_root(number: int | float) -> float:
         Cube root of number
     """
 
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
+
     if number < 0:
         raise ValueError("Cannot find cube root of negative number")
 
@@ -158,6 +176,9 @@ def get_factors(number: int) -> list[int]:
         Factors of number
     """
 
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
+    
     if number <= 0:
         raise ValueError("Factors are calculated for positive integers greater than 0.")
 
@@ -184,6 +205,9 @@ def get_factors_count(number: int) -> int:
         count of factors
     """
 
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
+    
     fact_count = 0
 
     if number <= 0:
@@ -212,7 +236,10 @@ def get_factors_sum(number: int) -> int:
     ------------------------------
     int:
         sum of factors
-    """
+    """ 
+
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
 
     return sum(get_factors(number))
 
@@ -233,6 +260,9 @@ def is_prime(number: int) -> bool:
     bool:
         True or false
     """
+
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
 
     if number <= 1:
         return False
@@ -265,6 +295,9 @@ def get_next_prime(number: int) -> int:
         Smallest prime number greater than num
     """
 
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
+
     next_num = number + 1
 
     while True:
@@ -290,6 +323,10 @@ def get_prev_prime(number: int) -> int:
     int:
         Largest prime number smaller than number
     """
+
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
+    
     # case 1: no prime numbers less than 2
     if number <= 2:
         raise ValueError("No prime numbers exist that are strictly smaller than 2.")
@@ -326,6 +363,9 @@ def get_prime_factors(number: int) -> list[int]:
         Prime factors of number
     """
 
+    if not isinstance(number, int):
+        raise TypeError("Number must be an integer.")
+
     if number <= 0:
         raise ValueError("Negative numbers not allowed!")
 
@@ -351,6 +391,8 @@ def get_nth_prime(n: int) -> int:
     int:
         nth prime number
     """
+    if not isinstance(n, int):
+        raise TypeError("n must be an integer.")
 
     if n <= 0:
         raise ValueError("The position 'n' must be a positive integer greater than 0.")
@@ -367,3 +409,34 @@ def get_nth_prime(n: int) -> int:
             if count == n:
                 return num
         num += 2
+
+def generate_primes(limit: int) -> list[int]:
+    """
+    Generates a list of all prime numbers up to and including the limit
+    using trial division.
+
+    Parameters:
+    ------------------------------
+    limit: int
+        The upper bound up to which primes should be generated.
+
+    Return value:
+    ------------------------------
+    list[int]:
+        A list of prime numbers.
+    """
+    if not isinstance(limit, int):
+        raise TypeError("Limit must be an integer.")
+    
+    if limit < 2:
+        return []
+
+    # 2 is the only even prime
+    primes = [2]
+    
+    # Check only odd numbers up to the limit
+    for num in range(3, limit + 1, 2):
+        if is_prime(num):
+            primes.append(num)
+            
+    return primes
