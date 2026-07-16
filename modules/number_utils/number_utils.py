@@ -215,3 +215,99 @@ def get_factors_sum(number: int) -> int:
     """
 
     return sum(get_factors(number))
+
+###########################################################################################
+# Prime number functions
+###########################################################################################
+
+def is_prime(number: int) -> bool:
+    """
+    Checks if number is prime
+
+    Parameters:
+    ------------------------------
+    number: int
+
+    Return value:
+    ------------------------------
+    bool:
+        True or false
+    """
+
+    if number <= 1:
+        return False
+    
+    if number == 2:
+        return True
+    
+    if number % 2 == 0:
+        return False
+    
+    limit = get_square_root(number)
+
+    for i in range(3, int(limit) + 1, 2):
+        if number % i == 0:
+            return False
+        
+    return True
+
+def get_next_prime(number: int) -> int:
+    """
+    Returns the smallest prime number greater than number
+
+    Parameters:
+    ------------------------------
+    number: int
+
+    Return value:
+    ------------------------------
+    int:
+        Smallest prime number greater than num
+    """
+
+    next_num = number + 1
+
+    while True:
+        # Ex: num = 2
+        # next_num = 3
+        if is_prime(next_num):
+            # Check if next_num is prime
+            return next_num
+        else:
+            # We increment the num and check it
+            next_num += 1
+
+def get_prev_prime(number: int) -> int:
+    """
+    Returns the largest prime number smaller than number.
+
+    Parameters:
+    ------------------------------
+    number: int
+
+    Return value:
+    ------------------------------
+    int:
+        Largest prime number smaller than number
+    """
+    # case 1: no prime numbers less than 2
+    if number <= 2:
+        raise ValueError("No prime numbers exist that are strictly smaller than 2.")
+    
+    # case 2: if number is 3, then largest prev prime number is 2
+    if number == 3:
+        return 2
+
+    prev_num = number - 1
+
+    # if prev number is even, we reduce it to make it odd
+    if prev_num % 2 == 0:
+        prev_num -= 1 
+
+    # We only check odd numbers
+    while prev_num >= 3:
+        if is_prime(prev_num):    
+            return prev_num
+        prev_num -= 2            
+        
+    return 2

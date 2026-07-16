@@ -9,19 +9,13 @@
 from number_utils import *
 
 def main():
-    num = 5
+    num = 2
 
     ret = is_even(num)
     print(f"Is {num} even?: {ret}")
 
-    ret = get_cube_root(num)
-    print(f"Cube root of {num}: {ret}")
-
-    ret = get_factors(num)
-    print(f"Factors of {num}: {ret}")
-
-    ret = get_factors_sum(num)
-    print(f"Sum of factors of {num}: {ret}")
+    ret = get_next_prime(num)
+    print(f"Next prime number greater than {num}: {ret}")
 
 if __name__ == "__main__":
     main()
