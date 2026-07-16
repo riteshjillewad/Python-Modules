@@ -9,13 +9,19 @@
 from number_utils import *
 
 def main():
-    num = 27
+    num = 5
 
     ret = is_even(num)
     print(f"Is {num} even?: {ret}")
 
     ret = get_cube_root(num)
     print(f"Cube root of {num}: {ret}")
+
+    ret = get_factors(num)
+    print(f"Factors of {num}: {ret}")
+
+    ret = get_factors_sum(num)
+    print(f"Sum of factors of {num}: {ret}")
 
 if __name__ == "__main__":
     main()

@@ -143,3 +143,75 @@ def get_cube_root(number: int | float) -> float:
         raise ValueError("Cannot find cube root of negative number")
 
     return number ** (1/3)
+
+def get_factors(number: int) -> list[int]:
+    """
+    Returns the factors of the number
+    
+    Parameters:
+    ------------------------------
+    number: int
+
+    Return value:
+    ------------------------------
+    list[int]:
+        Factors of number
+    """
+
+    if number <= 0:
+        raise ValueError("Factors are calculated for positive integers greater than 0.")
+
+    factors = set()
+
+    for i in range(1, int(get_square_root(number)) + 1):
+        if number % i == 0:
+            factors.add(i)
+            factors.add(number // i)
+
+    return sorted(list(factors))
+
+def get_factors_count(number: int) -> int:
+    """
+    Returns the count of factors of number
+
+    Parameters:
+    ------------------------------
+    number: int
+
+    Return value:
+    ------------------------------
+    int:
+        count of factors
+    """
+
+    fact_count = 0
+
+    if number <= 0:
+        raise ValueError("Factors are calculated for positive integers greater than 0.")
+    
+    for i in range(1, int(get_square_root(number)) + 1):
+        if number % i == 0:
+            # If the factors are distinct pairs (e.g., 2 and 6 for 12), add 2
+            if i * i != number:
+                fact_count += 2
+            # If it's a perfect square root (e.g., 5 and 5 for 25), only add 1
+            else:
+                fact_count += 1
+
+    return fact_count
+
+def get_factors_sum(number: int) -> int:
+    """
+    Returns the sum of factors 
+
+    Parameters:
+    ------------------------------
+    number: int
+
+    Return value:
+    ------------------------------
+    int:
+        sum of factors
+    """
+
+    return sum(get_factors(number))
