@@ -772,3 +772,128 @@ def is_perfect(number: int) -> bool:
             factor_sum += i
 
     return factor_sum == number
+
+def get_maximum(numbers: list[int | float]) -> int | float:
+    """
+    Returns the maximum value from a list of numbers.
+
+    Parameters:
+    ------------------------------
+    numbers: list[int | float]
+
+    Return value:
+    ------------------------------
+    int | float:
+        The maximum value.
+    """
+
+    if not isinstance(numbers, list):
+        raise TypeError("Input must be a list.")
+    
+    if len(numbers) == 0:
+        raise ValueError("Cannot find the maximum of an empty list.")
+
+    current_max = numbers[0]
+    
+    for num in numbers:
+        if not isinstance(num, (int, float)):
+            raise TypeError("All elements in the list must be integers or floats.")
+        if num > current_max:
+            current_max = num
+            
+    return current_max
+
+def get_minimum(numbers: list[int | float]) -> int | float:
+    """
+    Returns the minimum value from a list of numbers.
+
+    Parameters:
+    ------------------------------
+    numbers: list[int | float]
+
+    Return value:
+    ------------------------------
+    int | float:
+        The minimum value.
+    """
+
+    if not isinstance(numbers, list):
+        raise TypeError("Input must be a list.")
+    
+    if len(numbers) == 0:
+        raise ValueError("Cannot find the minimum of an empty list.")
+
+    current_min = numbers[0]
+    
+    for num in numbers:
+        if not isinstance(num, (int, float)):
+            raise TypeError("All elements in the list must be integers or floats.")
+        if num < current_min:
+            current_min = num
+            
+    return current_min
+
+def get_average(numbers: list[int | float]) -> float:
+    """
+    Returns the arithmetic mean (average) of a list of numbers.
+
+    Parameters:
+    ------------------------------
+    numbers: list[int | float]
+
+    Return value:
+    ------------------------------
+    float:
+        The average value.
+    """
+
+    if not isinstance(numbers, list):
+        raise TypeError("Input must be a list.")
+    
+    if len(numbers) == 0:
+        raise ValueError("Cannot calculate the average of an empty list.")
+
+    total_sum = 0.0
+    
+    for num in numbers:
+        if not isinstance(num, (int, float)):
+            raise TypeError("All elements in the list must be integers or floats.")
+        total_sum += num
+        
+    return total_sum / len(numbers)
+
+def get_median(numbers: list[int | float]) -> int | float:
+    """
+    Returns the median (middle value) of a list of numbers.
+
+    Parameters:
+    ------------------------------
+    numbers: list[int | float]
+
+    Return value:
+    ------------------------------
+    int | float:
+        The median value.
+    """
+
+    if not isinstance(numbers, list):
+        raise TypeError("Input must be a list.")
+    
+    if len(numbers) == 0:
+        raise ValueError("Cannot calculate the median of an empty list.")
+
+    for num in numbers:
+        if not isinstance(num, (int, float)):
+            raise TypeError("All elements in the list must be integers or floats.")
+
+    # Create a copy so we do not mutate the user's original list order
+    sorted_numbers = sorted(numbers)
+    n = len(sorted_numbers)
+    midpoint = n // 2
+
+    # If odd, return the exact middle element
+    if n % 2 != 0:
+        return sorted_numbers[midpoint]
+    
+    # If even, return the average of the two middle elements
+    return (sorted_numbers[midpoint - 1] + sorted_numbers[midpoint]) / 2
