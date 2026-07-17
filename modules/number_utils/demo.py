@@ -18,8 +18,8 @@ def main():
     ret = get_next_prime(num)
     print(f"Next prime number greater than {num}: {ret}")
 
-    ret = get_nth_prime(n)
-    print(f"{n}th prime number: {ret}")
+    ret = get_gcd(60, 48)
+    print(f"GCD of 60 and 48: {ret}")
 
 if __name__ == "__main__":
     main()

@@ -469,3 +469,55 @@ def count_primes(limit: int) -> int:
             count += 1
             
     return count
+
+def get_gcd(a: int, b: int) -> int:
+    """
+    Returns the gcd of two numbers
+
+    Parameters:
+    ------------------------------  
+    a: int
+    b: int
+
+    Return value:
+    ------------------------------
+    int:
+        gcd of two numbers
+    """
+
+    if not isinstance(a, int) or not isinstance(b, int):
+        raise TypeError("Inputs must be integers.")
+    
+    a = abs(a)
+    b = abs(b)
+
+    while b != 0:
+        a, b = b, a % b
+    
+    return a
+
+def get_lcm(a: int, b: int) -> int:
+    """
+    Returns the least common multiple (LCM) of two integers.
+
+    Parameters:
+    ------------------------------
+    a: int
+    b: int
+
+    Return value:
+    ------------------------------
+    int:
+        LCM of the two numbers.
+    """
+    if not isinstance(a, int) or not isinstance(b, int):
+        raise TypeError("Inputs must be integers.")
+        
+    # LCM of 0 and any number is 0 by mathematical convention
+    if a == 0 or b == 0:
+        return 0
+
+    a = abs(a)
+    b = abs(b)
+
+    return (a // get_gcd(a, b)) * b
