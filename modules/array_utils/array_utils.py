@@ -101,7 +101,7 @@ def reverse_arr(elements: list) -> None:
     ------------------------------
     None
     """
-    
+
     if not isinstance(elements, list):
         raise TypeError("Input must be a list.")
     
@@ -116,3 +116,22 @@ def reverse_arr(elements: list) -> None:
         
         start += 1
         end -= 1
+
+def clear(elements: list) -> None:
+    """
+    Removes all elements from the list in-place.
+
+    Parameters:
+    ------------------------------
+    elements: list
+
+    Return value:
+    ------------------------------
+    None
+    """
+
+    if not isinstance(elements, list):
+        raise TypeError("Input must be a list.")
+
+    while elements:
+        elements.pop()
